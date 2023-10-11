@@ -1,5 +1,5 @@
 package dispositivos;
 
-public class Tablet extends DispositivoElectronico {
+public class Tablet extends DispositivoMovil {
     
 }
