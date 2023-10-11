@@ -1,4 +1,4 @@
 # Practica7
-Cervantes Mateos Mikel
+Cervantes Mateos Leonardo Mikel
 
 Solé Pi Arnau Roger
