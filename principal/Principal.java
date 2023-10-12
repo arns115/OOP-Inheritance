@@ -8,12 +8,15 @@ import dispositivos.*;
 public class Principal {
     public static void main(String[] args){
         List <DispositivoElectronico> listaMercancia=new ArrayList<DispositivoElectronico>();
+        listaMercancia.add(new Laptop("Apple", "2002", 25000.0, "Rojo", "MacOs", "Intel Core I9", 16, 2000, 3.4f, false, false, true));
+        listaMercancia.add(new Smartphone("Samsung", "2021", 29999.99, 1.3f, true, true, true, "Telcer", "77492914", "GalaxyS22", "Samsung", "Tactil"));
+        
         Scanner sc=new Scanner(System.in);
         Estudiante estudiante=new Estudiante(null, null, 0, null, null, 0);
         Socio socio=new Socio(null, null, 0, 0);
         ClienteVip clienteVIP= new ClienteVip(null, null, 0, 0, 0, 0, 0);
         System.out.println("Bienvenido");
-        int op=0, t;
+        int op=1, t, restock=0;
         while(op==1){
             List <DispositivoElectronico> carritoUsuario=new ArrayList<DispositivoElectronico>();
             List <DispositivoElectronico> comprasFinales =new ArrayList<DispositivoElectronico>();  
@@ -84,8 +87,10 @@ public class Principal {
             double dinero;
             while(carritoUsuario.size()>0){
                 if(t==3){
+                    System.out.print("Presupuesto del comprador: "+estudiante.getPresupuesto());
                     dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/estudiante.getDescuento();
-                    if(estudiante.getPresupuesto()>dinero){
+                    System.out.print("Costo del dispositivo con el descuento del "+estudiante.getDescuento()+"% : "+dinero);
+                    if(estudiante.getPresupuesto()>=dinero){
                         comprasFinales.add(carritoUsuario.get(0));
                         estudiante.setPresupuesto(estudiante.getPresupuesto()-dinero);
                         listaMercancia.remove(carritoUsuario.get(0));
@@ -94,13 +99,62 @@ public class Principal {
                     else{
                         System.out.println("No hay dinero suficiente para comprar el objeto");
                     }
-                    carritoUsuario.remove(0);   
-                    posiciones.remove(0);
                 }
                 else if(t==2){
-                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/estudiante.getDescuento();
+                    System.out.println("Presupuesto del socio: "+socio.getPresupuesto());
+                    System.out.println("Puntos del socio: "+socio.getPuntos());
+                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/socio.getDescuento();
+                    System.out.println("Costo del dispositivo con el descuento del "+socio.getDescuento()+"% :" +dinero);
+                    if(socio.getPresupuesto()+socio.getPuntos()>=dinero){
+                        int puntos=socio.getPuntos();
+                        comprasFinales.add(carritoUsuario.get(0));
+                        socio.setPuntos((int)Math.max(puntos-dinero, 0));
+                        dinero-=puntos;
+                        if(dinero>0){
+                            socio.setPresupuesto(socio.getPresupuesto()-dinero);
+                            socio.setPuntos((int)dinero/socio.getDescuento());
+                        }
+                        listaMercancia.remove(carritoUsuario.get(0));
+                        System.out.println("Dispositivo "+posiciones.get(0)+ "  vendido");
+                        System.out.println("Se le aumentan los puntos del precio al socio");
+                    }
+                    else{
+                        System.out.println("No hay dinero suficiente para comprar el objeto");
+                    }
                 }
+                else{
+                    System.out.println("Presupuesto del cliente VIP: "+clienteVIP.getPresupuesto());
+                    System.out.println("Puntos del Cliente VIP: "+clienteVIP.getPuntos());
+                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/clienteVIP.getDescuento();
+                    System.out.println("Costo del dispositivo con el descuento del "+clienteVIP.getDescuento()+"% :" +dinero);
+                    if(clienteVIP.getPresupuesto()+clienteVIP.getPuntos()>=dinero){
+                        int puntos=clienteVIP.getPuntos();
+                        comprasFinales.add(carritoUsuario.get(0));
+                        clienteVIP.setPuntos((int)Math.max(puntos-dinero, 0));
+                        dinero-=puntos;
+                        if(dinero>0){
+                            clienteVIP.setPresupuesto(clienteVIP.getPresupuesto()-dinero);
+                            clienteVIP.setPuntos((int)dinero/clienteVIP.getDescuento());
+                        }
+                        listaMercancia.remove(carritoUsuario.get(0));
+                        System.out.println("Dispositivo "+posiciones.get(0)+ "  vendido");
+                        System.out.println("Se le aumentan los puntos del precio al cliente VIP");
+                    }
+                    else{
+                        System.out.println("No hay dinero suficiente para comprar el objeto");
+                    }
+                }
+                carritoUsuario.remove(0);   
+                posiciones.remove(0);
+            }
+            System.out.println("Compras finales: \n######################################");
+            for (DispositivoElectronico disp2: comprasFinales){
+                System.out.println(disp2+"\n");
             }
         }
+        System.out.println("\nEntrara algun otro cliente? 1)SI 2)NO");
+        op=sc.nextInt();
+        sc.nextLine();
+        System.out.println("Habra restock del inventario? 1)SI 2)NO");
     }
 }
