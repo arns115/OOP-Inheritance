@@ -2,26 +2,25 @@ package dispositivos;
 
 public class Television extends DispositivoElectronico{
     private String resolucion;
+
     private boolean smart;
     private boolean hdmi;
     private boolean Curva;
 
-    public Television(String marca, String anio, double precio, String color, String tipo, String resolucion, boolean smart, boolean hdmi, boolean esCurva) {
+    public Television(String marca, String anio, double precio, String color,  String resolucion, boolean smart, boolean hdmi, boolean esCurva) {
         super(marca, anio, precio, color);
-        this.tipo = tipo;
         this.resolucion = resolucion;
         this.smart = smart;
         this.hdmi = hdmi;
-        this.esCurva = esCurva;
+        this.Curva = esCurva;
     }
 
-    public Television(String marca, String anio, double precio, String tipo, String resolucion, boolean smart, boolean hdmi, boolean esCurva) {
+    public Television(String marca, String anio, double precio, String resolucion, boolean smart, boolean hdmi, boolean esCurva) {
         super(marca, anio, precio);
-        this.tipo = tipo;
         this.resolucion = resolucion;
         this.smart = smart;
         this.hdmi = hdmi;
-        this.esCurva = esCurva;
+        this.Curva = esCurva;
     }
 
     public String getResolucion() {

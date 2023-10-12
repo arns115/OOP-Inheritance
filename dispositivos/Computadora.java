@@ -22,7 +22,7 @@ public class Computadora extends DispositivoElectronico {
         this.almacenamiento = almacenamiento;
     }
 
-    public setProcesador(String procesador) {
+    public void setProcesador(String procesador) {
         this.procesador = procesador;
     }
 
@@ -30,7 +30,7 @@ public class Computadora extends DispositivoElectronico {
         return procesador;
     }
 
-    public setRam(int ram) {
+    public void setRam(int ram) {
         this.ram = ram;
     }
 
@@ -38,7 +38,7 @@ public class Computadora extends DispositivoElectronico {
         return ram;
     }
 
-    public setAlmacenamiento(int almacenamiento) {
+    public void setAlmacenamiento(int almacenamiento) {
         this.almacenamiento = almacenamiento;
     }
 
@@ -46,7 +46,7 @@ public class Computadora extends DispositivoElectronico {
         return almacenamiento;
     }
 
-    public setOs(String sistemaOperativo) {
+    public void setOs(String sistemaOperativo) {
         this.sistemaOperativo = sistemaOperativo;
     }
 
