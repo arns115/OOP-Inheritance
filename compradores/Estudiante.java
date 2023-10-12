@@ -50,6 +50,23 @@ public class Estudiante extends Comprador{
         }
     }
 
+    public static String registrarUniversidad(){
+        System.out.println("Ingrese la universidad del estudiante");
+        return sc.nextLine();
+    }
+
+    public static String registrarCarrera(){
+        System.out.println("Ingrese la carrera del estudiante");
+        return sc.nextLine();
+    }
+
+    public static int registrarSemestre(){
+        System.out.println("Ingrese el semestre que cursa");
+        int s=sc.nextInt();
+        sc.nextLine();
+        return s;
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Estudiante\n");
@@ -60,5 +77,20 @@ public class Estudiante extends Comprador{
         return sb.toString();
     }
 
-
+    public static Estudiante registrarEstudiante(){
+        Estudiante estudiante;
+        int op;
+        String nombre=registrarNombre();
+        String apellido=registrarApellido();
+        System.out.println("Incluira la edad del comprador?1)SI 2)NO");
+        op=sc.nextInt();
+        sc.nextLine();
+        if(op==1){
+            estudiante=new Estudiante(nombre, apellido, registrarPresupuesto(), registrarEdad(), registrarUniversidad(), registrarCarrera(), registrarSemestre());
+        }
+        else{
+            estudiante=new Estudiante(nombre, apellido, registrarPresupuesto(), registrarUniversidad(), registrarCarrera(), registrarSemestre());
+        }
+        return estudiante;
+    }
 }
