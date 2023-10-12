@@ -41,9 +41,15 @@ public class DispositivoMovil extends DispositivoElectronico{
         return TieneInternet;
     }
 
-    
-
-
-
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Dispositivo Movil\n");
+        sb.append(super.toString());
+        sb.append("Peso: "+getPeso()+"\n");
+        sb.append("Tiene camara: "+isTieneCamara()+"\n");
+        sb.append("Cabe en el bolsillo: "+isBolsillo()+"\n");
+        sb.append("Tiene internet: "+isTieneInternet()+"\n");
+        return sb.toString();
+    }
     
 }

@@ -52,8 +52,17 @@ public class DispositivoElectronico {
     public void setColor(String color) {
         this.color = color;
     }
-
-
+    
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Marca: "+getMarca()+"\n");
+        sb.append("Año: "+getAnio()+"\n");
+        sb.append("Precio: "+getPrecio()+"\n");
+        if(color!=null){
+            sb.append("Color: "+getColor()+"\n");
+        }
+        return sb.toString();
+    }
 
 
     

@@ -20,5 +20,13 @@ public class Celular extends DispositivoMovil {
         return numero;
     }
 
+    public String toString () {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Celular\n");
+        sb.append(super.toString());
+        sb.append("Operador: "+getOperador()+"\n");
+        sb.append("Numero: "+getNumero()+"\n");
+        return sb.toString();
+    }
 
 }

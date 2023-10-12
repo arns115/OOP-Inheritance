@@ -31,6 +31,14 @@ public class Smartphone extends Celular{
         return tipoPantalla;
     }
 
-    
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Smartphone\n");
+        sb.append(super.toString());
+        sb.append("Modelo: "+getModelo()+"\n");
+        sb.append("Sistema Operativo: "+getSistemaOperativo()+"\n");
+        sb.append("Tipo de Pantalla: "+getTipoPantalla()+"\n");
+        return sb.toString();
+    }
 
 }
