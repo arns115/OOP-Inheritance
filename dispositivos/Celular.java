@@ -16,7 +16,7 @@ public class Celular extends DispositivoMovil {
     public String getOperador() {
         return operador;
     }
-    public string getNumero() {
+    public String getNumero() {
         return numero;
     }
 

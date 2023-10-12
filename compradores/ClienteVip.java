@@ -6,7 +6,7 @@ public class ClienteVip extends Comprador {
     private int nivelVip;
 
     public ClienteVip(String nombre, String apellido, double presupuesto, int edad, double presupuestoExtra, int descuento, int puntos) {
-        super(nombre, apellido, presupuesto, edad, descuento|);
+        super(nombre, apellido, presupuesto, edad, descuento);
         this.presupuestoExtra = presupuestoExtra;
         this.puntos = puntos;
     }

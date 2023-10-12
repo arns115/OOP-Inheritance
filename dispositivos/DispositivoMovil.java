@@ -5,7 +5,7 @@ public class DispositivoMovil extends DispositivoElectronico{
     private boolean TieneCamara;
     private boolean Bolsillo;
     private boolean TieneInternet;
-    private contador=0;
+    private int contador1=0;
 
     public DispositivoMovil(String marca, String anio, double precio, String color, float Peso, boolean TieneCamara, boolean Bolsillo, boolean TieneInternet) {
         super(marca, anio, precio, color);
@@ -13,7 +13,7 @@ public class DispositivoMovil extends DispositivoElectronico{
         this.TieneCamara = TieneCamara;
         this.Bolsillo = Bolsillo;
         this.TieneInternet = TieneInternet;
-        contador++;
+        contador1++;
     }
 
     public DispositivoMovil(String marca, String anio, double precio, float Peso, boolean TieneCamara, boolean Bolsillo, boolean TieneInternet) {
@@ -22,7 +22,7 @@ public class DispositivoMovil extends DispositivoElectronico{
         this.TieneCamara = TieneCamara;
         this.Bolsillo = Bolsillo;
         this.TieneInternet = TieneInternet;
-        contador++;
+        contador1++;
     }
 
     public float getPeso() {

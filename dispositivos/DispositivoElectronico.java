@@ -21,35 +21,35 @@ public class DispositivoElectronico {
         contador++;
     }
 
-    public getMarca() {
+    public String getMarca() {
         return marca;
     }
     
-    public setMarca(String marca) {
+    public void setMarca(String marca) {
         this.marca = marca;
     }
 
-    public getAnio() {
+    public String getAnio() {
         return anio;
     }
 
-    public setAnio(String anio) {
+    public void setAnio(String anio) {
         this.anio = anio;
     }
 
-    public getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public setPrecio(double precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
-    public getColor() {
+    public String getColor() {
         return color;
     }
 
-    public setColor(String color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
