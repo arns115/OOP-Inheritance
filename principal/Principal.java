@@ -149,6 +149,20 @@ public class Principal {
                 carritoUsuario.remove(0);   
                 posiciones.remove(0);
             }
+            System.out.print("Comprador: \n");
+            switch(t){
+                case 1:
+                    System.out.println(clienteVIP);
+                    break;
+                case 2:
+                    System.out.println(socio);
+                    break;
+                case 3:
+                    System.out.println(estudiante);
+                    break;
+                default:
+                    break;
+            }
             System.out.println("Compras finales: \n######################################");
             for (DispositivoElectronico disp2: comprasFinales){
                 System.out.println(disp2+"\n");
@@ -157,6 +171,5 @@ public class Principal {
         System.out.println("\nEntrara algun otro cliente? 1)SI 2)NO");
         op=sc.nextInt();
         sc.nextLine();
-        System.out.println("Habra restock del inventario? 1)SI 2)NO");
     }
 }
