@@ -88,7 +88,7 @@ public class Principal {
             while(carritoUsuario.size()>0){
                 if(t==3){
                     System.out.print("Presupuesto del comprador: "+estudiante.getPresupuesto());
-                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/estudiante.getDescuento();
+                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/estudiante.getDescuento()*0.01;
                     System.out.print("Costo del dispositivo con el descuento del "+estudiante.getDescuento()+"% : "+dinero);
                     if(estudiante.getPresupuesto()>=dinero){
                         comprasFinales.add(carritoUsuario.get(0));
@@ -103,7 +103,7 @@ public class Principal {
                 else if(t==2){
                     System.out.println("Presupuesto del socio: "+socio.getPresupuesto());
                     System.out.println("Puntos del socio: "+socio.getPuntos());
-                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/socio.getDescuento();
+                    dinero=carritoUsuario.get(0).getPrecio()-(carritoUsuario.get(0).getPrecio()*socio.getDescuento()*0.01);
                     System.out.println("Costo del dispositivo con el descuento del "+socio.getDescuento()+"% :" +dinero);
                     if(socio.getPresupuesto()+socio.getPuntos()>=dinero){
                         int puntos=socio.getPuntos();
@@ -127,7 +127,7 @@ public class Principal {
                     clienteVIP.setPresupuestoExtra(0);
                     System.out.println("Presupuesto del cliente VIP: "+clienteVIP.getPresupuesto());
                     System.out.println("Puntos del Cliente VIP: "+clienteVIP.getPuntos());
-                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/clienteVIP.getDescuento();
+                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/clienteVIP.getDescuento()*0.01;
                     System.out.println("Costo del dispositivo con el descuento del "+clienteVIP.getDescuento()+"% :" +dinero);
                     if(clienteVIP.getPresupuesto()+clienteVIP.getPuntos()>=dinero){
                         int puntos=clienteVIP.getPuntos();

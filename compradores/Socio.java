@@ -19,6 +19,9 @@ public class Socio extends Comprador{
         this.puntos = puntos;
     }
 
+    public String toString(){
+        return super.toString()+"\nPuntos: "+getPuntos();
+    }
     public static Socio registrarSocio(){
         Socio socio;
         int op;
