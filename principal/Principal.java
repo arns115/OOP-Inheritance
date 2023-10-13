@@ -8,8 +8,18 @@ import dispositivos.*;
 public class Principal {
     public static void main(String[] args){
         List <DispositivoElectronico> listaMercancia=new ArrayList<DispositivoElectronico>();
-        listaMercancia.add(new Laptop("Apple", "2002", 25000.0, "Rojo", "MacOs", "Intel Core I9", 16, 2000, 3.4f, false, false, true));
+        listaMercancia.add(new Laptop("Apple", "2022", 25000.0, "Rojo", "MacOs", "Intel Core I9", 16, 2000, 3.4f, false, false, true));
         listaMercancia.add(new Smartphone("Samsung", "2021", 29999.99, 1.3f, true, true, true, "Telcer", "77492914", "GalaxyS22", "Samsung", "Tactil"));
+        listaMercancia.add(new Tablet("Huawei", "2022", 12000.0, 1.9f, true, false, true, "Android", false));
+        listaMercancia.add(new PC("Apple", "2021", 15000.0, "MacOs", "M1", 16, 512, true, true, true));
+        listaMercancia.add(new Television("LG", "2017", 14999.9, "4K", false, true, false));
+        listaMercancia.add(new Laptop("Asus", "2022", 19999.9, "Black", "Windows", "Intel I5", 16, 512, 1.3f, true, false, true));
+        listaMercancia.add(new Smartphone("Apple", "2023", 29999.99, 1.3f, true, true, true, "Telcel", "77492914", "Iphone 15", "Apple", "Tactil"));
+        listaMercancia.add(new Tablet("Samsung", "2022", 12000.0, "blue", 1.9f, true, false, true, "Android", false));
+
+        
+        
+
 
         Scanner sc=new Scanner(System.in);
         Estudiante estudiante=new Estudiante(null, null, 0, null, null, 0);
@@ -51,7 +61,7 @@ public class Principal {
                         Posibles.add(i);
                     }
                 }
-                if(disp1 instanceof Television){
+                else if(disp1 instanceof Television){
                     if(t==1){
                         System.out.println("Dispositivo "+i+"\n"+disp1);
                         Posibles.add(i);
@@ -88,7 +98,7 @@ public class Principal {
             while(carritoUsuario.size()>0){
                 if(t==3){
                     System.out.print("Presupuesto del comprador: "+estudiante.getPresupuesto());
-                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/estudiante.getDescuento()*0.01;
+                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/estudiante.getDescuento();
                     System.out.print("Costo del dispositivo con el descuento del "+estudiante.getDescuento()+"% : "+dinero);
                     if(estudiante.getPresupuesto()>=dinero){
                         comprasFinales.add(carritoUsuario.get(0));
@@ -103,7 +113,7 @@ public class Principal {
                 else if(t==2){
                     System.out.println("Presupuesto del socio: "+socio.getPresupuesto());
                     System.out.println("Puntos del socio: "+socio.getPuntos());
-                    dinero=carritoUsuario.get(0).getPrecio()-(carritoUsuario.get(0).getPrecio()*socio.getDescuento()*0.01);
+                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/socio.getDescuento();
                     System.out.println("Costo del dispositivo con el descuento del "+socio.getDescuento()+"% :" +dinero);
                     if(socio.getPresupuesto()+socio.getPuntos()>=dinero){
                         int puntos=socio.getPuntos();
@@ -127,7 +137,7 @@ public class Principal {
                     clienteVIP.setPresupuestoExtra(0);
                     System.out.println("Presupuesto del cliente VIP: "+clienteVIP.getPresupuesto());
                     System.out.println("Puntos del Cliente VIP: "+clienteVIP.getPuntos());
-                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/clienteVIP.getDescuento()*0.01;
+                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/clienteVIP.getDescuento();
                     System.out.println("Costo del dispositivo con el descuento del "+clienteVIP.getDescuento()+"% :" +dinero);
                     if(clienteVIP.getPresupuesto()+clienteVIP.getPuntos()>=dinero){
                         int puntos=clienteVIP.getPuntos();
