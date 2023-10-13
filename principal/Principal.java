@@ -88,7 +88,7 @@ public class Principal {
             while(carritoUsuario.size()>0){
                 if(t==3){
                     System.out.print("Presupuesto del comprador: "+estudiante.getPresupuesto());
-                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/estudiante.getDescuento()*0.01;
+                    dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()*estudiante.getDescuento()*0.01;
                     System.out.print("Costo del dispositivo con el descuento del "+estudiante.getDescuento()+"% : "+dinero);
                     if(estudiante.getPresupuesto()>=dinero){
                         comprasFinales.add(carritoUsuario.get(0));
