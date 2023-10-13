@@ -10,13 +10,13 @@ public class Principal {
         List <DispositivoElectronico> listaMercancia=new ArrayList<DispositivoElectronico>();
         listaMercancia.add(new Laptop("Apple", "2002", 25000.0, "Rojo", "MacOs", "Intel Core I9", 16, 2000, 3.4f, false, false, true));
         listaMercancia.add(new Smartphone("Samsung", "2021", 29999.99, 1.3f, true, true, true, "Telcer", "77492914", "GalaxyS22", "Samsung", "Tactil"));
-        
+
         Scanner sc=new Scanner(System.in);
         Estudiante estudiante=new Estudiante(null, null, 0, null, null, 0);
         Socio socio=new Socio(null, null, 0, 0);
         ClienteVip clienteVIP= new ClienteVip(null, null, 0, 0, 0, 0, 0);
         System.out.println("Bienvenido");
-        int op=1, t, restock=0;
+        int op=1, t;
         while(op==1){
             List <DispositivoElectronico> carritoUsuario=new ArrayList<DispositivoElectronico>();
             List <DispositivoElectronico> comprasFinales =new ArrayList<DispositivoElectronico>();  
@@ -123,6 +123,8 @@ public class Principal {
                     }
                 }
                 else{
+                    clienteVIP.setPresupuesto(clienteVIP.getPresupuesto()+clienteVIP.getPresupuestoExtra());
+                    clienteVIP.setPresupuestoExtra(0);
                     System.out.println("Presupuesto del cliente VIP: "+clienteVIP.getPresupuesto());
                     System.out.println("Puntos del Cliente VIP: "+clienteVIP.getPuntos());
                     dinero=carritoUsuario.get(0).getPrecio()-carritoUsuario.get(0).getPrecio()/clienteVIP.getDescuento();
