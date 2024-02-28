@@ -1,4 +1,4 @@
-# Practica7
+# OOP-Inheritance 
 Cervantes Mateos Leonardo Mikel
 
 Solé Pi Arnau Roger
